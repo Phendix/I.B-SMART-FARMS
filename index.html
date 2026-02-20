@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.B SMART FARMS - Innovation & Growth</title>
+    
+    <!-- Tailwind CSS (Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (For the icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles & Animations -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Animations */
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide sections by default */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+        
+        /* Slider Transitions */
+        .slide { transition: opacity 1s ease-in-out; opacity: 0; }
+        .slide.active { opacity: 1; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
+
+    <!-- NAVIGATION -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div onclick="navigateTo('home')" class="cursor-pointer flex items-center gap-2 hover:opacity-80 transition">
+                    <div class="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-xl">I.B</div>
+                    <div class="leading-tight">
+                        <span class="block font-bold text-gray-900 text-lg tracking-tight">I.B SMART FARMS</span>
+                        <span class="block text-xs text-green-600 font-semibold tracking-widest uppercase">Innovation & Growth</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex gap-8">
+                    <button onclick="navigateTo('home')" class="nav-link font-medium text-green-700 font-bold hover:text-green-600 transition" data-target="home">Home</button>
+                    <button onclick="navigateTo('about')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="about">About</button>
+                    <button onclick="navigateTo('services')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="services">Services</button>
+                    <button onclick="navigateTo('products')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="products">Products</button>
+                    <button onclick="navigateTo('training')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="training">Training</button>
+                    <button onclick="navigateTo('projects')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="projects">Projects</button>
+                    <button onclick="navigateTo('blog')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="blog">Blog</button>
+                    <button onclick="navigateTo('contact')" class="nav-link font-medium text-gray-600 hover:text-green-600 transition" data-target="contact">Contact</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-800 p-2" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl fade-in">
+            <div class="flex flex-col p-4 space-y-2">
+                <button onclick="navigateTo('home')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Home</button>
+                <button onclick="navigateTo('about')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">About</button>
+                <button onclick="navigateTo('services')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Services</button>
+                <button onclick="navigateTo('products')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Products</button>
+                <button onclick="navigateTo('training')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Training</button>
+                <button onclick="navigateTo('projects')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Projects</button>
+                <button onclick="navigateTo('blog')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Blog</button>
+                <button onclick="navigateTo('contact')" class="text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-600">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow">
+
+        <!-- ================= HOME PAGE ================= -->
+        <section id="home" class="page-section active fade-in">
+            <!-- Hero Slider -->
+            <div class="relative h-[80vh] md:h-[90vh] bg-gray-900 overflow-hidden">
+                <div id="hero-slider">
+                    <!-- Images injected via JS -->
+                </div>
+                
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-20 z-10">
+                    <div class="fade-in-up">
+                        <span class="inline-block py-1 px-3 rounded-full bg-yellow-500 text-black font-bold text-sm mb-6 tracking-wide uppercase">
+                            Welcome to I.B SMART FARMS
+                        </span>
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+                            Building Sustainable Agriculture <br class="hidden md:block"/>
+                            Through <span class="text-green-400">Innovation</span> & <span class="text-yellow-400">Empowerment</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                            Poultry • Fisheries • Crop Production • Agro Processing • Youth Empowerment
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-4 justify-center">
+                            <button onclick="navigateTo('contact')" class="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-lg transition transform hover:scale-105">
+                                Partner With Us
+                            </button>
+                            <button onclick="navigateTo('training')" class="px-8 py-4 bg-white hover:bg-gray-100 text-green-800 font-bold rounded-lg shadow-lg transition transform hover:scale-105">
+                                Join Our Training
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro -->
+            <div class="py-20 bg-white container mx-auto px-4">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-1/2">
+                        <h2 class="text-green-700 font-bold tracking-wider uppercase mb-2">Who We Are</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Redefining Agriculture in Nigeria</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            I.B SMART FARMS is an innovation-driven agricultural enterprise committed to modern, sustainable, and profitable farming systems. We combine practical production with capacity building to create opportunities across the agricultural value chain.
+                        </p>
+                        <button onclick="navigateTo('about')" class="text-green-700 font-bold border-b-2 border-green-700 pb-1 hover:text-green-800">
+                            Read Our Full Story
+                        </button>
+                    </div>
+                    <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                        <img src="IMAGES/poultry.jpeg" class="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Poultry">
+                        <img src="IMAGES/fishery.jpeg" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8" alt="Fishery">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Operations Grid -->
+            <div class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="mb-12 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold text-green-900 mb-4">Our Core Operations</h2>
+                        <div class="w-24 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-1 transition duration-300">
+                            <div class="h-48 overflow-hidden"><img src="IMAGES/poultry.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2 mb-3"><i data-lucide="bird" class="text-green-700"></i> Poultry Production</h3>
+                                <p class="text-gray-600 text-sm">High-quality poultry products using efficient management practices.</p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-1 transition duration-300">
+                            <div class="h-48 overflow-hidden"><img src="IMAGES/fishery.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2 mb-3"><i data-lucide="fish" class="text-blue-600"></i> Fisheries</h3>
+                                <p class="text-gray-600 text-sm">Responsible aquaculture focusing on catfish and fingerling production.</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-1 transition duration-300">
+                            <div class="h-48 overflow-hidden"><img src="IMAGES/IB10.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2 mb-3"><i data-lucide="sprout" class="text-green-600"></i> Crops & Nursery</h3>
+                                <p class="text-gray-600 text-sm">Innovative cultivation using conventional and soilless methods.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="py-20 bg-yellow-500 text-center">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Ready to Start Your Agricultural Journey?</h2>
+                    <p class="text-xl text-gray-800 mb-8">Partner with I.B SMART FARMS today.</p>
+                    <button onclick="navigateTo('contact')" class="px-8 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition shadow-lg">Contact Us</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT PAGE ================= -->
+        <section id="about" class="page-section fade-in">
+            <div class="bg-green-900 text-white py-20 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">About I.B SMART FARMS</h1>
+                <p class="text-green-100">I.B SMART FARMS is an innovation-driven agricultural enterprise committed to modern, sustainable, and profitable farming systems. We combine practical production with capacity building to create opportunities across the agricultural value chain. From poultry and fish production to crop cultivation, garri processing, agro merchandise supply, and mentorship programs, we operate as a complete agribusiness ecosystem.</p>
+            </div>
+            <div class="container mx-auto px-4 py-20">
+                <!-- Mission/Vision -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+                    <div class="bg-green-50 p-10 rounded-2xl border border-green-100">
+                        <i data-lucide="award" class="text-green-700 w-12 h-12 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                        <p class="text-gray-700">To promote sustainable agricultural production, value addition, and agribusiness development through innovation, training, and inclusive empowerment of youth and women.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-10 rounded-2xl border border-yellow-100">
+                        <i data-lucide="sprout" class="text-yellow-700 w-12 h-12 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                        <p class="text-gray-700">To become a leading agricultural innovation and training hub in Nigeria, driving food security, economic growth, and community transformation.</p>
+                    </div>
+                </div>
+
+                <!-- Founder -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 h-96 md:h-auto bg-gray-200 relative">
+                        <img src="IMAGES/HEADSHOT.jpeg" alt="Founder" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                            <h3 class="text-2xl font-bold">Ali Ibrahim Musa</h3>
+                            <p class="text-yellow-400">Founder & CEO</p>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 p-8 md:p-12">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Meet The Visionary</h3>
+                        <p class="text-gray-600 mb-6">Ali Ibrahim Musa is an agripreneur, agricultural innovator, and youth development advocate dedicated to transforming agriculture into a tool for sustainable food security, economic empowerment, and innovation in Nigeria.
+He is the Founder and Chief Executive Officer of I.B SMART FARMS, a diversified agribusiness enterprise engaged in poultry production, fisheries, crop cultivation, agro-processing, agro merchandise supply, and agricultural training. Under his leadership, the farm operates as both a production enterprise and a platform for innovation, mentorship, and community impact.
+Ali is the visionary behind the NextGen Agriculture Program (NeGAP) — an initiative designed to equip students, youth, and women with practical agricultural skills, modern farming techniques, and entrepreneurship training to build profitable and sustainable agribusiness ventures.
+</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2 border-b pb-1">Awards, Recognition and Responsibility</h4>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li>• Farmer of the Year (NAAS ABU Zaria)</li>
+                                    <li>• Fellow, Young Africa Innovates (YAI)</li>
+                                    <li>• Deal Room 2.0 Grant Winner</li>
+                                    <li>• COO Raynative Smart Farm</li>
+                                    <li>• member, Board of Director, Raynative Smart Farms</li>
+                                    <li>• C of C ABU SRC 2024/2025</li>
+                                    <li>• Faculty Chairman, FOA ABU zaria 2024/2025</li>
+                                    <li>• Fellow Young African Innovate Program</li>
+                                    <li>• Young Cassava Changemakers Pitch Winner 2025</li>
+                                    <li>• Ten outstanding Young Person Award, ABU Zaria 2025</li>
+                                    <li>• Awardee AREWA stars Award 2024, AGricultyral Category</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SERVICES PAGE ================= -->
+        <section id="services" class="page-section fade-in">
+            <div class="bg-gray-900 text-white py-20 text-center">
+                <h1 class="text-4xl font-bold">Our Services</h1>
+                <p class="text-gray-300">Comprehensive Solutions for Modern Agriculture</p>
+            </div>
+            <div class="container mx-auto px-4 py-20 space-y-16">
+                <!-- Service Item 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2"><img src="IMAGES/poultry.jpeg" class="rounded-2xl shadow-xl w-full"></div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-green-900 mb-4 flex items-center gap-2"><i data-lucide="bird"></i> Poultry Production</h2>
+                        <p class="text-gray-600 text-lg">We produce high-quality poultry products using efficient and sustainable management practices.</p>
+                    </div>
+                </div>
+                 <!-- Service Item 2 -->
+                 <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                    <div class="md:w-1/2"><img src="IMAGES/fishery.jpeg" class="rounded-2xl shadow-xl w-full"></div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-green-900 mb-4 flex items-center gap-2"><i data-lucide="fish"></i> Fisheries & Aquaculture</h2>
+                        <p class="text-gray-600 text-lg">Our fish farming operations focus on responsible aquaculture practices guaranteeing quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PRODUCTS PAGE ================= -->
+        <section id="products" class="page-section fade-in">
+            <div class="bg-yellow-500 text-gray-900 py-16 text-center">
+                <h1 class="text-4xl font-bold">Our Products</h1>
+                <p class="text-gray-800">Fresh from the farm to your table.</p>
+            </div>
+            <div class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-green-800 mb-6 flex items-center gap-2"><i data-lucide="shopping-bag"></i> Food Products</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 border p-4 rounded-lg"><img src="IMAGES/garri.jpeg" class="w-16 h-16 object-cover rounded"> <div><b>Premium Garri</b><p class="text-sm text-gray-500">Sand-free, processed hygienically.</p></div></li>
+                        <li class="flex items-center gap-4 border p-4 rounded-lg"><img src="IMAGES/fishery.jpeg" class="w-16 h-16 object-cover rounded"> <div><b>Fresh Catfish</b><p class="text-sm text-gray-500">Live or smoked.</p></div></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                     <h2 class="text-2xl font-bold text-green-800 mb-6 flex items-center gap-2"><i data-lucide="sprout"></i> Agro Inputs</h2>
+                     <ul class="space-y-3">
+                         <li class="flex justify-between p-3 border-b"><span>High-yield Seedlings</span> <span class="text-green-600 bg-green-100 px-2 rounded text-xs py-1">Stocked</span></li>
+                         <li class="flex justify-between p-3 border-b"><span>Farm Tools</span> <span class="text-green-600 bg-green-100 px-2 rounded text-xs py-1">Stocked</span></li>
+                         <li class="flex justify-between p-3 border-b"><span>Coco Peat (Media)</span> <span class="text-green-600 bg-green-100 px-2 rounded text-xs py-1">Stocked</span></li>
+                     </ul>
+                     <div class="mt-8 text-center">
+                         <a href="https://wa.me/2347062884108" class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 font-bold"><i data-lucide="phone"></i> Order via WhatsApp</a>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TRAINING PAGE ================= -->
+        <section id="training" class="page-section fade-in">
+             <div class="bg-green-800 text-white py-20 px-4 text-center">
+                <h1 class="text-4xl font-bold mb-4">Training & Empowerment</h1>
+                <p class="text-green-100">Raising the next generation of agricultural innovators.</p>
+            </div>
+            <div class="container mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Programs</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-lg bg-gray-50">
+                            <div class="bg-yellow-100 p-3 rounded-lg h-fit"><i data-lucide="users" class="text-yellow-700"></i></div>
+                            <div><h3 class="text-xl font-bold">NextGen Agriculture Program (NeGAP)</h3><p class="text-gray-600">Equipping youth with practical skills in modern farming.</p></div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-lg bg-gray-50">
+                            <div class="bg-green-100 p-3 rounded-lg h-fit"><i data-lucide="sprout" class="text-green-700"></i></div>
+                            <div><h3 class="text-xl font-bold">Hydroponics & Soilless Farming</h3><p class="text-gray-600">Training on future-forward farming systems without soil.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <img src="IMAGES/IB15.jpeg" class="rounded-2xl shadow-xl w-full h-full object-cover">
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS PAGE ================= -->
+        <section id="projects" class="page-section fade-in">
+            <div class="container mx-auto px-4 py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900">Projects Gallery</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="IMAGES/IB2.jpeg" class="rounded-xl w-full h-64 object-cover">
+                    <img src="IMAGES/IB5.jpeg" class="rounded-xl w-full h-64 object-cover">
+                    <img src="IMAGES/IB9.jpeg" class="rounded-xl w-full h-64 object-cover">
+                    <img src="IMAGES/IB11.jpeg" class="rounded-xl w-full h-64 object-cover">
+                    <img src="IMAGES/IB13.jpeg" class="rounded-xl w-full h-64 object-cover">
+                    <img src="IMAGES/CERTIFICATE.jpeg" class="rounded-xl w-full h-64 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= BLOG PAGE ================= -->
+        <section id="blog" class="page-section fade-in">
+             <div class="container mx-auto px-4 py-16">
+                <h2 class="text-3xl font-bold text-center mb-12">Farm Insights</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-white rounded-xl shadow border">
+                        <div class="h-48 bg-gray-200"><img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover rounded-t-xl"></div>
+                        <div class="p-6">
+                            <span class="text-xs text-green-600 font-bold">POULTRY</span>
+                            <h3 class="font-bold text-lg mt-2">Starting Poultry in Nigeria</h3>
+                            <button class="text-green-700 text-sm mt-4 font-bold">Read More →</button>
+                        </div>
+                    </div>
+                     <!-- Blog Post 2 -->
+                     <div class="bg-white rounded-xl shadow border">
+                        <div class="h-48 bg-gray-200"><img src="IMAGES/fishery.jpeg" class="w-full h-full object-cover rounded-t-xl"></div>
+                        <div class="p-6">
+                            <span class="text-xs text-blue-600 font-bold">FISHERY</span>
+                            <h3 class="font-bold text-lg mt-2">Profitable Fish Farming Tips</h3>
+                            <button class="text-green-700 text-sm mt-4 font-bold">Read More →</button>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                     <div class="bg-white rounded-xl shadow border">
+                        <div class="h-48 bg-gray-200"><img src="IMAGES/IB10.jpeg" class="w-full h-full object-cover rounded-t-xl"></div>
+                        <div class="p-6">
+                            <span class="text-xs text-yellow-600 font-bold">TECH</span>
+                            <h3 class="font-bold text-lg mt-2">Hydroponics for Beginners</h3>
+                            <button class="text-green-700 text-sm mt-4 font-bold">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT PAGE ================= -->
+        <section id="contact" class="page-section fade-in">
+             <div class="bg-gray-900 text-white py-16 text-center">
+                <h1 class="text-4xl font-bold">Contact Us</h1>
+                <p class="text-gray-400">We'd love to hear from you.</p>
+            </div>
+            <div class="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4"><div class="bg-green-100 p-3 rounded-full"><i data-lucide="phone" class="text-green-700"></i></div><div><b>Phone</b><p>+234 706 288 4108</p></div></div>
+                        <div class="flex items-center gap-4"><div class="bg-green-100 p-3 rounded-full"><i data-lucide="mail" class="text-green-700"></i></div><div><b>Email</b><p>I.bsmartfarms@gmail.com</p></div></div>
+                        <div class="flex items-center gap-4"><div class="bg-green-100 p-3 rounded-full"><i data-lucide="map-pin" class="text-green-700"></i></div><div><b>Location</b><p>Zaria, Kaduna State, Nigeria</p></div></div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Message Sent!');" class="space-y-4">
+                        <input type="text" placeholder="Full Name" class="w-full px-4 py-3 rounded-lg border focus:ring-2 ring-green-500 outline-none">
+                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border focus:ring-2 ring-green-500 outline-none">
+                        <textarea rows="4" placeholder="Message" class="w-full px-4 py-3 rounded-lg border focus:ring-2 ring-green-500 outline-none"></textarea>
+                        <button class="w-full bg-green-700 text-white font-bold py-4 rounded-lg hover:bg-green-800 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800 mt-auto">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+            <div>
+                <div class="flex items-center gap-2 mb-4 text-white font-bold text-xl"><div class="w-8 h-8 bg-green-600 rounded flex items-center justify-center">I.B</div> I.B SMART FARMS</div>
+                <p class="text-gray-400">A leading agricultural innovation and training hub in Nigeria.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><button onclick="navigateTo('about')" class="hover:text-green-400">About Us</button></li>
+                    <li><button onclick="navigateTo('services')" class="hover:text-green-400">Services</button></li>
+                    <li><button onclick="navigateTo('projects')" class="hover:text-green-400">Projects</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact</h4>
+                <p>Zaria, Kaduna State, Nigeria</p>
+                <p>+234 706 288 4108</p>
+            </div>
+            <div>
+                <p>&copy; 2025 I.B SMART FARMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/2347062884108" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition z-50 animate-bounce">
+        <i data-lucide="phone"></i>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Navigation Logic
+        function navigateTo(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            
+            // Show target section
+            const target = document.getElementById(pageId);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Update Active Link State
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                if(link.getAttribute('data-target') === pageId) {
+                    link.classList.add('text-green-700', 'font-bold');
+                    link.classList.remove('text-gray-600');
+                } else {
+                    link.classList.remove('text-green-700', 'font-bold');
+                    link.classList.add('text-gray-600');
+                }
+            });
+        }
+
+        // 3. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 4. Hero Slider Logic
+        const heroImages = [
+            "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1920",
+            "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1920",
+            "https://images.unsplash.com/photo-1526315682697-7d7286161836?auto=format&fit=crop&q=80&w=1920",
+            "https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?auto=format&fit=crop&q=80&w=1920"
+        ];
+        
+        const sliderContainer = document.getElementById('hero-slider');
+        let currentSlide = 0;
+
+        // Create Image Elements
+        heroImages.forEach((img, index) => {
+            const div = document.createElement('div');
+            div.className = `absolute inset-0 w-full h-full object-cover bg-black slide ${index === 0 ? 'active' : ''}`;
+            div.innerHTML = `<img src="${img}" class="w-full h-full object-cover opacity-50">`;
+            sliderContainer.appendChild(div);
+        });
+
+        // Auto Scroll
+        setInterval(() => {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+    </script>
+</body>
+</html>
